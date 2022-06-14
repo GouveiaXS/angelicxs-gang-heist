@@ -21,7 +21,7 @@ Config.GangInformation = {
 	--	if Config.GangLocationBlips = false leave icon and colour as example numbers
 	-- x, y, z are the coords that the safe can be breached at
 	-- name is job/gang name
-	-- sname is name of gang/job society fund
+	-- sname is name of gang/job society fund (example for esx = society_vagos)
 	-- example
 	-- ['vagos'] = {icon = 84, colour = 40, x = , y = , z = , h = , name = 'vagos', sname = 'vagos'}
 }
