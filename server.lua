@@ -142,7 +142,7 @@ AddEventHandler('angelicxs-gangheist:Server:Completion', function(gangSafe)
         if Config.UseESX then
             TriggerEvent('esx_addonaccount:getSharedAccount', gangSafe, function(account)
                 if account.money >= reward then
-                    account.removeGangMoney(reward)
+                    account.removeMoney(reward)
                 end
             end)
         elseif Config.UseQBCore then
