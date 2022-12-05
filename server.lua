@@ -56,6 +56,7 @@ if Config.UseESX then
             local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
             if xPlayer.job.name == name then
                 gang = gang + 1
+		TriggerClientEvent('angelicxs-gangheist:Notify',xPlayers[i], Config.Lang['steal_attempt'], Config.LangType['info'])
             end
         end
         
@@ -72,6 +73,7 @@ elseif Config.UseQBCore then
         for k, v in pairs(players) do
             if v.PlayerData.gang.name == name then
                 gang = gang + 1
+		TriggerClientEvent('angelicxs-gangheist:Notify',v.PlayerData.source, Config.Lang['steal_attempt'], Config.LangType['info'])
             end
         end
 
