@@ -117,14 +117,7 @@ AddEventHandler('angelicxs-gangheist:Server:Completion', function(gangSafe)
                 funds = account.money
             end)
         elseif Config.UseQBCore then
-            MySQL.Async.fetchAll('SELECT * FROM management_funds WHERE job_name = @job_name', {
-                ['@job_name'] = gangSafe,
-            }, function (result)
-                local table = table.unpack(result)
-                if table~=nil then
-                    funds = table.amount
-                end
-            end)
+            funds = exports['qb-management']:GetGangAccount(gangSafe)
         end
         Wait(400)
         if Config.TakeFromSocietyFlat then
