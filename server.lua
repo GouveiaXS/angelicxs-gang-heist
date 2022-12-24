@@ -132,7 +132,7 @@ AddEventHandler('angelicxs-gangheist:Server:Completion', function(gangSafe)
             reward = Config.MoneyAmount
         end
     end
-
+    reward = math/floor(reward)
     if Config.SocietySteal then
         if Config.UseESX then
             TriggerEvent('esx_addonaccount:getSharedAccount', gangSafe, function(account)
