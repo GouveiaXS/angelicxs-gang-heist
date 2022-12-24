@@ -99,7 +99,7 @@ CreateThread(function()
                         icon = "fas fa-hand-point-up",
                         label = "Steal from " .. info.name,
                         action = function(entity)
-                            TriggerEvent('angelicxs-gangheist:StealCheck', info.name)
+                            TriggerEvent('angelicxs-gangheist:StealCheck', info.name, info.sname)
                         end,
                     },
                 },
