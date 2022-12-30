@@ -130,7 +130,7 @@ end)
 
 RegisterNetEvent('angelicxs-gangheist:StealCheck', function(gangSafe, gangFund)
     if not Config.RobOwnGang then
-        if  PlayerJob == gangSafe or PlayerGang == gangSafe then 
+        if  PlayerJob == gangSafe then 
             TriggerEvent('angelicxs-gangheist:Notify', Config.Lang['noselfrob'], Config.LangType['error'])
             return 
         end
