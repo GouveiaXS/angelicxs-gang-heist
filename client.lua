@@ -2,8 +2,6 @@ ESX = nil
 QBcore = nil
 playerData = {}
 PlayerJob = nil
-PlayerGrade = nil
-PlayerGang = nil
 local win = false
 
 RegisterNetEvent('angelicxs-gangheist:Notify', function(message, type)
@@ -32,7 +30,6 @@ CreateThread(function()
             while true do
                 if playerData ~= nil then
                     PlayerJob = playerData.job.name
-                    PlayerGrade = playerData.job.grade
                     break
                 end
                 Wait(100)
@@ -40,7 +37,6 @@ CreateThread(function()
         end)
         RegisterNetEvent('esx:setJob', function(job)
             PlayerJob = job.name
-            PlayerGrade = job.grade
         end)
 
     elseif Config.UseQBCore then
@@ -52,18 +48,21 @@ CreateThread(function()
                 playerData = QBCore.Functions.GetPlayerData()
 				if playerData.citizenid ~= nil then
 					PlayerJob = playerData.job.name
-					PlayerGrade = playerData.job.grade.level
-                    PlayerGang = playerData.gang.name
-					break
+                    if playerData.gang.name ~= 'none' then
+                        PlayerJob = playerData.gang.name
+                    end
+                    break
 				end
 				Wait(100)
 			end
 		end)
 
         RegisterNetEvent('QBCore:Client:OnJobUpdate', function(job)
+            playerData = QBCore.Functions.GetPlayerData()
             PlayerJob = job.name
-            PlayerGrade = job.grade.level
-            PlayerGang = playerData.gang.name
+            if playerData.gang.name ~= 'none' then
+                PlayerJob = playerData.gang.name
+            end
         end)
     end
     
@@ -130,6 +129,12 @@ CreateThread(function()
 end)
 
 RegisterNetEvent('angelicxs-gangheist:StealCheck', function(gangSafe, gangFund)
+    if not Config.RobOwnGang then
+        if  PlayerJob == gangSafe or PlayerGang == gangSafe then 
+            TriggerEvent('angelicxs-gangheist:Notify', Config.Lang['noselfrob'], Config.LangType['error'])
+            return 
+        end
+    end
     local Player = PlayerPedId()
     local enoughcops = false
     local enoughgang = false
