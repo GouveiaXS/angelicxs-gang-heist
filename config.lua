@@ -37,6 +37,7 @@ Config.RequiredNumberLEO = 1 				-- Minimum number of LEO needed when Config.Req
 Config.LEOJobName = 'police' 				-- Job name of law enforcement officers
 
 --Gang Configuration
+Config.RobOwnGang = false				-- If true will allow players to rob their own gang
 Config.RequireMinimumGang = true 			-- When true will require a minimum number of gang members to be available to rob a gang
 Config.RequiredNumberGang = 1				-- Minimum number of gang members needed when Config.RequireMinimumGang = true
 
@@ -87,4 +88,6 @@ Config.Lang = {
 	['missing_item'] = 'You need a '..Config.ItemName..'!',
 	['win'] = 'You have successfully stolen funds from the ',
 	['steal_attempt'] = 'Someone is trying to steal your shit!,
+	['noselfrob'] = 'You cannot rob your own gang!,
+
 }
