@@ -87,7 +87,7 @@ Config.Lang = {
 	['minnotmet'] = 'No risk, no reward. Come back later!',
 	['missing_item'] = 'You need a '..Config.ItemName..'!',
 	['win'] = 'You have successfully stolen funds from the ',
-	['steal_attempt'] = 'Someone is trying to steal your shit!,
-	['noselfrob'] = 'You cannot rob your own gang!,
+	['steal_attempt'] = 'Someone is trying to steal your shit!',
+	['noselfrob'] = 'You cannot rob your own gang!',
 
 }
