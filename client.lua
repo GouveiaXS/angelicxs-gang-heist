@@ -84,7 +84,7 @@ CreateThread(function()
             exports[Config.ThirdEyeName]:AddBoxZone(gang..info.name, vector3(info.x,info.y,info.z), 3, 3, {
                 name = gang..info.name,
                 heading = info.h,
-                debugPoly = true,
+                debugPoly = false,
                 minZ = info.z - 1.5,
                 maxZ = info.z + 1.5,
             },
